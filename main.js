@@ -44,21 +44,17 @@ Clipboard.addEventListener('click', ()=> {
     }
     textarea.value = password;
     document.body.appendChild(textarea);
-    textarea.select ();
+    textarea.select();
     document.execCommand('copy');
     textarea.remove();
-    alert('Password copied to clipboard')
+    alert('Password copied to clipboard');
 
 })
 
 
 
 // Gererate password function
-function generatePassword(lower, upper, number, symbol, length){
-    // 1. Init pw var
-    // 2 filter out unchecke types
-    // 3. loop over lenght call generator function for each type
-    // 4. Add final pw to the pw var and return
+function generatePassword(lower, upper, number, symbol, length) {
 
     let generatedPassword = '';
 
@@ -66,7 +62,10 @@ function generatePassword(lower, upper, number, symbol, length){
 
     //console.log ('typesCount: ', typesCount);
 
-    const typesArr = [{lower}, {upper}, {numbers}, {symbol}].filter(item => Object.values(item)[0]);
+    const typesArr = [{lower}, {upper}, {numbers}, {symbol}].filter
+    (
+        item => Object.values(item)[0]
+    );
 
     //console.log('typesArr: ', typesArr);
 
@@ -74,7 +73,7 @@ function generatePassword(lower, upper, number, symbol, length){
         return '';
     }
 
-    for(let i = 0; 1 < length; i += typesCount) {
+    for (let i = 0; 1 < length; i += typesCount) {
         typesArr.forEach(type => {
             const funcName = Object.keys(type)[0];
 
