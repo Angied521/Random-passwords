@@ -5,13 +5,14 @@ const uppercaseEl = document.getElementById('uppercase');
 const lowercaseEl = document.getElementById('lowercase');
 const numbersEl = document.getElementById('numbers');
 const symbolsEl = document.getElementById('symbols');
-const clEl = document.getElementById('cl');
+const generateEl = document.getElementById('generate');
+const clipboardEL = document.getElementById('clipboard');
 
 
 const randomFunc = {
-    lower: getRandowUpper,
-    upper: getRandowUpper,
-    number: getRandowNumber,
+    lower: getRandomLower,
+    upper: getRandomUpper,
+    number: getRandomNumber,
     symbol: getRandomSymbol,    
 };
 
@@ -34,7 +35,7 @@ generateEl.addEventListener('click', () => {
 });
 
 //Copy pasword to clipboard
-Clipboard.addEventListener('click', ( )=> {
+Clipboard.addEventListener('click', ()=> {
     const textarea = document.createElement('textarea');
     const password = resultEl.innerText;
 
@@ -65,8 +66,7 @@ function generatePassword(lower, upper, number, symbol, length){
 
     //console.log ('typesCount: ', typesCount);
 
-    const typesArr = [{ lower }, { upper }, { numbers }, { symbol }].filter
-    (item => Object.values(item)[0]);
+    const typesArr = [{lower}, {upper}, {numbers}, {symbol}].filter(item => Object.values(item)[0]);
 
     //console.log('typesArr: ', typesArr);
 
@@ -82,7 +82,7 @@ function generatePassword(lower, upper, number, symbol, length){
                     });
     }
 
-    const finalPassword = gereratedPassword.slice(0,length);
+    const finalPassword = generatedPassword.slice(0,length);
 
     return finalPassword;
 
@@ -91,15 +91,15 @@ function generatePassword(lower, upper, number, symbol, length){
 
 // Gernerator functions - http://www.net-comber.com/charset.html
 
-function getRandowLower() {
+function getRandomLower() {
         return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 
-function getRandowUpper() {
+function getRandomUpper() {
     return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 
-function getRandowNumber() {
+function getRandomNumber() {
     return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
@@ -108,4 +108,4 @@ function getRandomSymbol() {
     return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-console.log(getRandomUpper) 
+

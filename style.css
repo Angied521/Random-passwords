@@ -73,7 +73,8 @@ input[type='checkbox'] {
 
 .btn-large {
     display: block;
-    width: 38%;
+    width: 350px;
+    max-width: 100%;
     padding: 10px;
 }
 
