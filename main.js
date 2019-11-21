@@ -60,14 +60,14 @@ function generatePassword(lower, upper, number, symbol, length) {
 
     const typesCount = lower + upper + number + symbol;
 
-    //console.log ('typesCount: ', typesCount);
+    console.log ('typesCount: ', typesCount);
 
-    const typesArr = [{lower}, {upper}, {numbers}, {symbol}].filter
+    const typesArr = [{lower}, {upper}, {number}, {symbol}].filter
     (
-        item => Object.values(item)[0]
+        item => Object.keys(item)[0]
     );
 
-    //console.log('typesArr: ', typesArr);
+    console.log('typesArr: ', typesArr);
 
     if (typesCount === 0) {
         return '';
@@ -77,7 +77,8 @@ function generatePassword(lower, upper, number, symbol, length) {
         typesArr.forEach(type => {
             const funcName = Object.keys(type)[0];
 
-            generatedPassword += randomFunc[funcName];
+            generatedPassword += randomFunc[funcName]()
+            console.log('i = ' + i + ' generated: ' + generatedPassword);
                     });
     }
 
